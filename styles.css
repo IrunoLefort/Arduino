@@ -252,7 +252,7 @@ code {
 @media only screen and (min-width: 250px) and (max-width: 599px) {
   #navbar {
     min-width: 100px;
-    width: 120px;
+    width: 105px;
   }
 
   #navbar li {
@@ -270,7 +270,9 @@ code {
   }
 
   #main-doc {
-    margin-left: 130px;
+    position: relative;
+    margin-left: 110px;
+    /* margin-left: 130px; */
     padding: 2px;
     margin-bottom: 20px;
   }
