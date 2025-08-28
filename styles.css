@@ -286,3 +286,74 @@ code {
     font-size: 0.9rem;
   }
 }
+
+
+
+@media only screen and (max-width: 400px) {
+  #navbar {
+    position: fixed;
+    min-width: 50px;
+    width: 80px;
+    height: 100%;
+  }
+
+
+  #navbar li {
+    font-size: 0.3rem;
+  }
+
+  #navbar a {
+    padding: 2px 8px;
+    font-size: 0.3rem;
+  }
+
+  header {
+    margin: 0.5px;
+    font-size: 0.6em;
+  }
+
+
+  #main-doc {
+    position: absolute;
+    margin-left: 85px;
+    padding: 1px;
+    margin-bottom: 5px;
+  }
+
+  section article {
+    margin: 0.5px;
+    font-size: 0.2em;
+  }
+
+  p{
+    font-size: 0.4rem;
+    padding-left: 0.1rem;
+  }
+
+  h2{
+    font-size: 0.5rem;
+    padding-left: 0.1rem;
+  }
+
+  ul{
+    font-size: 0.5rem;
+    padding-left: 0.5rem;
+    margin-top: 0.08rem;
+  }
+
+
+  table, th, td {
+    padding: 0.1rem 0.2rem;
+    font-size: 0.5rem;
+  }
+
+  code {
+    padding: 0 5px;
+    margin: 2px;
+    border-radius: 5px;
+  }
+
+  .code{
+    font-size: 0.6rem;
+  }
+}
