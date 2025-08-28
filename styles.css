@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200i,400&display=swap');
+
+html,
+body {
+  min-width: 290px;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+
+#navbar {
+  position: fixed;
+  min-width: 290px;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+  height: 100%;
+  border-right: solid;
+  border-color: rgba(44, 47, 47, 0.4);
+  background-color: rgba(180, 197, 197, 0.4);
+}
+
+#navbar ul {
+  height: 88%;
+  padding: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#navbar li {
+  color: #111112;
+  list-style: none;
+  position: relative;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+#navbar a {
+  display: block;
+  padding: 10px 30px;
+  color: #111112;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+header {
+  color: black;
+  margin: 10px;
+  text-align: center;
+  font-size: 1.8em;
+}
+
+#main-doc header {
+  text-align: left;
+  margin: 0px;
+}
+
+#main-doc {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-left: 310px;
+  padding: 20px;
+  margin-bottom: 110px;
+}
+
+section article {
+  margin: 15px;
+  font-size: 0.96em;
+}
+
+p{
+  font-size: 1.2rem;
+  padding-left: 1rem;
+  margin-bottom: 0;
+}
+
+h2{
+  font-size: 1.3rem;
+  padding-left: 1rem;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+ul{
+  font-size: 1.2rem;
+  padding-left: 5rem;
+  margin-top: 0.2rem;
+}
+
+table{
+  margin: auto;
+  padding: auto;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+}
+
+code {
+  display: block;
+  text-align: left;
+  white-space: pre-wrap;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  background-color: #f7f7f7;
+  padding: 0 30px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.code{
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    #navbar {
+    position: fixed;
+    min-width: 200px;
+    width: 250px;
+    height: 100%;
+  }
+
+  #navbar li {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+
+  #navbar a {
+    font-size: 1.1rem;
+  }
+
+  #main-doc {
+    margin-left: 250px;
+    padding: 15px;
+    margin-bottom: 70px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #navbar {
+    position: fixed;
+    min-width: 100px;
+    width: 150px;
+    height: 100%;
+  }
+
+  #navbar ul {
+    height: 88%;
+  }
+
+  #navbar li {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  #navbar a {
+    padding: 5px 20px;
+    font-size: 1rem;
+  }
+
+  header {
+    margin: 5px;
+    font-size: 1.5em;
+  }
+
+
+  #main-doc {
+    position: absolute;
+    margin-left: 160px;
+    padding: 10px;
+    margin-bottom: 50px;
+  }
+
+  section article {
+    margin: 5px;
+    font-size: 0.55em;
+  }
+
+  p{
+    font-size: 0.9rem;
+    padding-left: 0.6rem;
+  }
+
+  h2{
+    font-size: 1rem;
+    padding-left: 0.6rem;
+  }
+
+  ul{
+    font-size: 1rem;
+    padding-left: 3rem;
+    margin-top: 0.1rem;
+  }
+
+
+  table, th, td {
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+  }
+
+  code {
+    padding: 0 20px;
+    margin: 8px;
+    border-radius: 5px;
+  }
+
+  .code{
+    font-size: 1rem;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  #navbar {
+    position: fixed;
+    min-width: 80px;
+    width: 100px;
+    height: 100%;
+  }
+
+
+  #navbar li {
+    width: 100%;
+    font-size: 0.6rem;
+  }
+
+  #navbar a {
+    padding: 5px 20px;
+    font-size: 0.6rem;
+  }
+
+  header {
+    margin: 1px;
+    font-size: 1em;
+  }
+
+
+  #main-doc {
+    position: absolute;
+    margin-left: 110px;
+    padding: 5px;
+    margin-bottom: 25px;
+  }
+
+  section article {
+    margin: 1px;
+    font-size: 0.35em;
+  }
+
+  p{
+    font-size: 0.7rem;
+    padding-left: 0.3rem;
+  }
+
+  h2{
+    font-size: 0.8rem;
+    padding-left: 0.3rem;
+  }
+
+  ul{
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    margin-top: 0.1rem;
+  }
+
+
+  table, th, td {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  code {
+    padding: 0 10px;
+    margin: 4px;
+    border-radius: 5px;
+  }
+
+  .code{
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Arduino Programming Basics</title>
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <header>Arduino Programming Basics</header>
+      <ul>
+        <li>
+          <a class="nav-link"  href="#Introduction">Introduction</a>
+        </li>
+        <li>
+          <a class="nav-link"  href="#Basic_structure_of_an_arduino_program">Basic structure of an arduino program</a>
+        </li>
+        <li>
+          <a class="nav-link"  href="#Variables_and_constants">Variables and constants</a>
+        </li>
+        <li>
+          <a class="nav-link"  href="#Input_and_Output">Input and Output</a>
+        </li>
+        <li>
+          <a class="nav-link"  href="#Function_declarations">Function declarations</a>
+        </li>
+        <li>
+          <a class="nav-link"  href="#Serial_communication">Serial communication</a>
+        </li>
+        <li>
+          <a class="nav-link"  href="#Using_libraries">Using libraries</a>
+        </li>
+        <li>
+          <a class="nav-link"  href="#Good_practices">Good practices</a>
+        </li>
+        <li>
+          <a class="nav-link"  href="#Reference">Reference</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main-doc">
+      <section id="Introduction" class="main-section">
+        <header>Introduction</header>
+        <article>
+          <p>
+            Arduino is an open-source electronics platform based on easy-to-use hardware and software. 
+            It allows beginners, students, and professionals to quickly prototype and build interactive systems. 
+            Thanks to its simplicity and flexibility, Arduino has become one of the most popular tools for learning embedded systems and microcontroller programming.
+          </p>
+          <p>
+            Programming an Arduino is done using the <a class="link" href="https://www.arduino.cc/en/software/" target="_blank">Arduino IDE</a> which is based on C/C++ with simplified functions to make development more accessible. 
+          </p>
+          
+        </article>
+      </section>
+      <section id="Basic_structure_of_an_arduino_program" class="main-section">
+        <header>Basic structure of an arduino program</header>
+        <article>
+          <p>
+            Every Arduino program, called a sketch, follows a simple structure composed of two main functions:
+          </p>
+          <h2>setup()</h2>
+          <ul>
+            <li>
+              Runs once when the Arduino starts or resets.
+            </li>
+            <li>
+              Used to initialize pins, configure communication (like Serial), and set up sensors or modules.
+            </li>
+          </ul>
+          <code class="code">
+void setup() {
+  //configuration and initialization
+}
+          </code>
+
+          <h2>loop()</h2>
+          <ul>
+            <li>
+              Runs continuously after setup() finishes.
+            </li>
+            <li>
+              Contains the main logic of your program and repeats indefinitely.
+            </li>
+          </ul>
+          <code class="code">
+void loop() {
+  //your main program
+}
+          </code>
+        </article>
+      </section>
+      <section id="Variables_and_constants" class="main-section">
+        <header>Variables and constants</header>
+        <article>
+          <p>
+            Variables are used to store data that your program can use and modify during execution. 
+            Constants store data that does not change. Choosing the right data type is important for memory efficiency and correct program behavior.
+          </p>
+          <h2>Variables</h2>
+          <ul>
+            <li>
+              Declared with a data type followed by a name.
+            </li>
+            <li>
+              Can change value during program execution.
+            </li>
+          </ul>
+          <h2>Constants</h2>
+          <ul>
+            <li>
+              Use <span class="code">const</span> (or <span class="code">#define</span>) to define values that should not change.
+            </li>
+            <li>
+              Prevents accidental modifications and improves code readability.
+            </li>
+          </ul>
+          <h2>Common data types</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Size</th>
+                <th>Description</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th><span>int</span></th>
+                <td>2 bytes</td>
+                <td>Whole numbers (-32,768 to 32,767)</td>
+                <td><span class="code">int counter = 0;</span></>
+              </tr>
+              <tr>
+                <th><span>float</span></th>
+                <td>4 bytes</td>
+                <td>Decimal numbers</td>
+                <td><span class="code">float temperature = 23.5;</span></>
+              </tr>
+              <tr>
+                <th><span>boolean</span></th>
+                <td>1 byte</td>
+                <td>True/False</td>
+                <td><span class="code">boolean ledOn = true;</span></>
+              </tr>
+              <tr>
+                <th><span>char</span></th>
+                <td>1 byte</td>
+                <td>Single character</td>
+                <td><span class="code">char letter = 'a';</span></>
+              </tr>
+              <tr>
+                <th><span>String</span></th>
+                <td>varies</td>
+                <td>Text</td>
+                <td><span class="code">String name = "Arduino";</span></>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+      <section id="Input_and_Output" class="main-section">
+        <header>Input and Output</header>
+        <article>
+          <p>
+            Arduino interacts with the outside world through its pins, 
+            which can be used as digital or analog inputs and outputs.
+          </p>
+          <ul>
+            <li>
+              Input: Reading data from sensors or buttons to get information from the outside world
+            </li>
+            <li>
+              Output: Sending signals to actuators like LEDs, motors, or displays to control the environment.
+            </li>
+          </ul>
+          <h2>Digital I/O</h2>
+          <ul>
+            <li>
+              Digital pins can be either HIGH (1) or LOW (0)
+            </li>
+            <li>
+              Functions to use:
+              <ul>
+                <li><span class="code">pinMode(pin, mode)</span> configure pin as input or output</li>
+                <li><span class="code">digitalWrite(pin, value)</span> set output HIGH or LOW</li>
+                <li><span class="code">digitalRead(pin)</span> read input value</li>
+              </ul>
+            </li>
+          </ul>
+          <h2>Analog I/O</h2>
+          <ul>
+            <li>
+              Analog input: reads a voltage from 0V to 5V and converts it to a value between 0 and 1023.
+              <ul>
+                <li>
+                  <span class="code">analogRead(pin)</span> returns integer value (0–1023)
+                </li>
+              </ul>
+            </li>
+            <li>
+              Analog output (PWM): simulates analog voltage using Pulse Width Modulation.
+              <ul>
+                <li>
+                  <span class="code">analogWrite(pin)</span> value between 0 (0%) and 255 (100%)
+                </li>
+              </ul>
+          </ul>
+          <p>
+            <strong>Note:</strong> Not every pin on an Arduino board can be used as an analog input or output. 
+            The number and location of analog pins depend on the specific Arduino model.
+          </p>
+        </article>
+      </section>
+      <section id="Function_declarations" class="main-section">
+        <header>Function declarations</header>
+        <article>
+          <p>
+            Functions allow you to organize your code, make it reusable, and improve readability. 
+            Instead of writing the same code multiple times, you can define a function once and call it whenever needed.
+          </p>
+          <p>
+            A function definition consists of:
+          </p>
+          <ul>
+            <li>
+              The return type of the function (void if it does not return a value).
+            </li>
+            <li>
+              The name of the function.
+
+A list of parameters (inputs) enclosed in parentheses and separated by commas.
+
+The statements that define the function, enclosed in curly braces { }.
+            </li>
+            <li>
+              A list of parameters enclosed in parentheses and separated by commas.
+            </li>
+            <li>
+              The statements that define the function, enclosed in curly braces { }.
+            </li>
+          </ul>
+          <p>
+            Example – Function that returns the square of a number:
+          </p>
+          <code class="code">
+int square(int number) {
+  return number * number;
+}
+          </code>
+
+          <p>
+            Example – Function with no return value (void):
+          </p>
+          <code class="code">
+void blinkLED(int pin) {
+  digitalWrite(pin, HIGH);
+  delay(500);
+  digitalWrite(pin, LOW);
+  delay(500);
+}
+          </code>
+        </article>
+      </section>
+      <section id="Serial_communication" class="main-section">
+        <header>Serial communication</header>
+        <article>
+          <p>
+            Serial communication allows Arduino to send and receive data to and from a computer, which is essential for monitoring, debugging, and controlling your Arduino programs. 
+            The Serial Monitor in the Arduino IDE is used to view the data in real-time.
+          </p>
+          <h2>Initializing Serial Communication</h2>
+          <p>
+            Use <span class="code">Serial.begin(baudRate)</span> in the setup() function to start communication at a specific speed (baud rate).
+          </p>
+          <code class="code">
+void setup() {
+  Serial.begin(9600); // Start serial communication at 9600 bits per second
+}
+          </code>
+          <h2>Sending data</h2>
+          <ul>
+            <li>
+              <span class="code">Serial.print()</span> prints data without a newline
+            </li>
+            <li>
+              <span class="code">Serial.println()</span> prints data and moves to a new line
+            </li>
+          </ul>
+          <code class="code">
+void loop() {
+  int sensorValue = analogRead(A0);
+  Serial.print("Sensor value: ");
+  Serial.println(sensorValue);
+  delay(1000); // Wait 1 second
+}
+          </code>
+          <h2>Receiving data</h2>
+          <ul>
+            <li>
+              <span class="code">Serial.available()</span> checks if data is available to read
+            </li>
+            <li>
+              <span class="code">Serial.read()</span> reads incoming data
+            </li>
+            <li>
+              <span class="code">Serial.readUntil(terminator)</span> reads incoming serial data until a specific character(terminator) is detected
+            </li>
+          </ul>
+          <code class="code">
+void loop() {
+  if (Serial.available() > 0) {
+    char incoming = Serial.read();
+    Serial.print("You sent: ");
+    Serial.println(incoming);
+  }
+}
+          </code>
+        </article>
+      </section>
+      <section id="Using_libraries" class="main-section">
+        <header>Using libraries</header>
+        <article>
+          <p>
+            Libraries in Arduino are pre-written code modules that simplify working with sensors, modules, displays, communication protocols, and more. 
+            They allow you to reuse code without writing everything from scratch
+          </p>
+          <h2>Including a library</h2>
+          <code class="code">
+  #include &lt;LibraryName.h&gt;
+          </code>
+          <h2>Installing a library</h2>
+          <ul>
+            <li>
+              Use Arduino IDE Library Manager: <strong>Sketch > Include Library > Manage Libraries…</strong>
+            </li>
+            <li>
+              Or manually place the library folder in the <strong>Arduino/libraries</strong> directory.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="Good_practices" class="main-section">
+        <header>Good practices</header>
+        <article>
+          <p>
+            Here are some recommendations for programming effectively on Arduino:
+          </p>
+          <ul>
+            <li>
+              Use descriptive names for variables, functions, and constants.
+            </li>
+            <li>
+              Keep code modular by using functions for repeated tasks.
+            </li>
+            <li>
+              Avoid long delays; prefer millis() over delay() for non-blocking timing.
+            </li>
+            <li>
+              Comment your code to explain functionality and logic.
+            </li>
+            <li>
+              Initialize all variables to prevent undefined behavior.
+            </li>
+            <li>
+              Include only necessary libraries to save memory.
+            </li>
+            <li>
+              Check hardware limits (pin capabilities, voltage, current) before connecting devices.
+            </li>
+          </ul>
+        </article>
+      </section>
+      <section id="Reference" class="main-section">
+        <header>Reference</header>
+        <article>
+          <p>Learn more on the 
+            <a href="https://www.arduino.cc/" target="_blank">Arduino website</a>.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
